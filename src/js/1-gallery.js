@@ -1,8 +1,3 @@
-import SimpleLightbox from "simplelightbox";
-
-
-console.log(SimpleLightbox);
-
 const images = [
   {
     preview:
@@ -94,20 +89,7 @@ const galleryListUl = document.querySelector('.gallery');
 
 galleryListUl.innerHTML = imagesCardTemplate;
 
-galleryListUl.addEventListener('click', (event) => {
-    const clickedImage = event.target;
+import SimpleLightbox from "simplelightbox";
 
-    if (event.target === event.currentTarget) {
-        return;
-    }
-
-    event.preventDefault();
-
-    const instance = basicLightbox.create(`
-    <img src="${clickedImage.dataset.source}" alt="${clickedImage.alt}">
-  `);
-    
-    instance.show();
-    
-});
+new SimpleLightbox('.gallery a', {captionsData: 'alt'}, {captionDelay: 250});
 
